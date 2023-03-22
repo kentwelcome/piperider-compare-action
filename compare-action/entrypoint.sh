@@ -3,6 +3,7 @@ set -o pipefail
 
 if [[ "${GITHUB_EVENT_NAME}" != "pull_request" ]]; then
   echo "This action is designed to work with pull_request events only."
+  echo "::error::This action is designed to work with pull_request events only."
   exit 0
 fi
 
