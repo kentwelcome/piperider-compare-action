@@ -51,10 +51,11 @@ git fetch --unshallow
 set -e
 # invoke the github-action helper script
 PYTHONPATH=/tmp/utils python -m piperider_cli.recipes.github_action prepare_for_action
-run_command=$(PYTHONPATH=/tmp/utils python -m piperider_cli.recipes.github_action make_recipe_command)
-echo "will execute => $run_command"
-
-eval $run_command ; rc=$?
+commands=$(PYTHONPATH=/tmp/utils python -m piperider_cli.recipes.github_action make_recipe_command)
+for run in ${commands}; do
+    echo "will execute => $run"
+    eval $run
+done
 
 echo "::set-output name=status::${rc}"
 echo "::set-output name=uuid::${uuid}"
