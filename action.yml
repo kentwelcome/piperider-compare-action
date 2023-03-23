@@ -42,6 +42,8 @@ outputs:
 
 runs:
   using: "composite"
+  permissions:
+      pull-requests: write
   steps:
     - id: piperider-compare
       uses: ./compare-action
