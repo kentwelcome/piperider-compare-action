@@ -23,8 +23,3 @@ jobs:
         uses: ./compare-action
         env:
           PIPERIDER_API_SERVICE: https://staging.cloud.piperider.io
-        with:
-          upload: true
-          share: false
-          cloud_project: TBBT/github-action
-          cloud_api_token: ${{ secrets.PIPERIDER_API_TOKEN }}
