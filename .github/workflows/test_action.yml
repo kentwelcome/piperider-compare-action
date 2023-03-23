@@ -14,13 +14,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - uses: actions/checkout@v3
       
       - name: Run compare action
         uses: ./compare-action
-        permissions:
-          pull-requests: write
         env:
           PIPERIDER_API_SERVICE: https://staging.cloud.piperider.io
         with:
